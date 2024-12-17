@@ -1,23 +1,29 @@
 import { Box } from "@mui/material";
 import Login from "./pages/Login/Login";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
-import { useAuthContext } from "./context/AuthContext";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout";
+import Quiz from "./pages/Quiz/Quiz";
 function App() {
-    const { authUser } = useAuthContext();
-    return (
-        <Box className="flex justify-center items-center w-full h-auto bg-primary">
-            <Routes>
-                <Route
-                    path="/"
-                    element={authUser ? <Navigate to="/" /> : <Login />}
-                />
-                <Route path="/signup" />
-            </Routes>
-            <Toaster />
-        </Box>
-    );
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Box className="flex justify-center items-center w-screen h-auto bg-primary">
+                <Login />
+              </Box>
+            }
+          />
+
+          <Route element={<RootLayout />}>
+            <Route path="/quiz" element={<Quiz />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
