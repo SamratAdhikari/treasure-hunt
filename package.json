@@ -17,12 +17,10 @@
     "formik": "^2.4.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-<<<<<<< HEAD
-    "react-qr-scanner": "^1.0.0-alpha.11",
-=======
     "react-hot-toast": "^2.4.1",
->>>>>>> 5c0dde3f4d3d42a62b7feae54ad949d6fdc069fc
+    "react-qr-scanner": "^1.0.0-alpha.11",
     "react-router-dom": "^7.0.2",
+    "react-switch-selector": "^2.3.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {

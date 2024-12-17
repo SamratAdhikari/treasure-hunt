@@ -1,26 +1,16 @@
-import { Link } from "react-router-dom";
-import useLogin from "../../hooks/useLogin";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+// import useLogin from "../../hooks/useLogin";
 import {
     Box,
     Button,
-    CircularProgress,
     FormControl,
     FormHelperText,
     TextField,
 } from "@mui/material";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
 
 const Login = () => {
-    const { loading, login } = useLogin();
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        await login(username, password);
-    };
+    // const { loading, login } = useLogin();
 
     return (
         <Box className="h-screen flex justify-center items-center">
