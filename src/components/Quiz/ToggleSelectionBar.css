@@ -1,52 +1,52 @@
+/* ToggleSelectionBar.css */
 .toggle-container {
-    position: relative;
-    width: 200px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: #ccc;
-  }
-  
-  .toggle-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 0 10px;
-  }
-  
-  .toggle-option {
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
-    flex: 1;
-    padding: 5px;
-    transition: color 0.3s ease;
-  }
-  
-  .toggle-option:hover {
-    color: #007BFF;
-  }
-  
-  .toggle-option.active {
-    color: #007BFF;
-  }
-  
-  .toggle-indicator {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 90px;
-    height: 30px;
-    background-color: #007BFF;
-    border-radius: 20px;
-    transition: transform 0.3s ease;
-  }
-  
-  .toggle-indicator.quiz {
-    transform: translateX(0);
-  }
-  
-  .toggle-indicator.leaderboard {
-    transform: translateX(100%);
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.toggle-bar {
+  display: flex;
+  justify-content: center;
+  background-color: #bfb3f3;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 80%;
+}
+
+.toggle-option {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #48127f;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-option.active {
+  background-color: #6200ea;
+  color: white;
+}
+
+.toggle-option:not(.active):hover {
+  background-color: #b286f0;
+}
+
+.toggle-indicator {
+  margin-top: 0.5rem;
+  height: 3px;
+  width: 100%;
+  background-color: #6200ea;
+  transition: transform 0.3s ease;
+}
+
+.toggle-indicator.quiz {
+  transform: translateX(0%);
+}
+
+.toggle-indicator.leaderboard {
+  transform: translateX(100%);
+}

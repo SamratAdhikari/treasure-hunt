@@ -3,10 +3,10 @@ import Login from "./pages/Login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import Quiz from "./pages/Quiz/Quiz";
+import { Leaderboard } from "@mui/icons-material";
 function App() {
   return (
     <>
-      <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -19,9 +19,9 @@ function App() {
 
           <Route element={<RootLayout />}>
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/leaderboard" element={<Leaderboard/>}/>
           </Route>
         </Routes>
-      </BrowserRouter>
     </>
   );
 }
