@@ -19,7 +19,12 @@
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",
     "react-qr-scanner": "^1.0.0-alpha.11",
+<<<<<<< HEAD
+=======
+    "react-router": "^7.0.2",
+>>>>>>> 18d908ba55fa9ef0e590afb25acf946cdd7a4f6f
     "react-router-dom": "^7.0.2",
+    "react-switch-selector": "^2.3.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {
