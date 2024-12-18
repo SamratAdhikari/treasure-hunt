@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import QrScanner from "react-qr-scanner"; // Import QR scanner package
+import { AspectRatio } from '@mui/icons-material';
+import React, { useState } from 'react';
+import QrScanner from 'react-qr-scanner';  // Import QR scanner package
 
 const Quiz = () => {
     const [qrResult, setQrResult] = useState(null); // State to store QR scan result
@@ -25,7 +26,7 @@ const Quiz = () => {
                 <h2>Scan QR Code</h2>
                 {/* <QrScanner
               delay={300}  // Delay in milliseconds for the scanner
-              style={{ width: '100%' }} // Make the scanner full width
+              style={{ width: '80vh',AspectRatio:1/1,  }} // Make the scanner full width
               onScan={handleScan}  // Handle scan result
               onError={handleError}  // Handle errors
             /> */}
