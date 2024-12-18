@@ -7,33 +7,36 @@ const useLogin = () => {
     const { setAuthUser } = useAuthContext();
 
     const login = async (username, password) => {
-        const success = handleInputErrors({ username, password });
-        if (!success) return;
-
         setLoading(true);
 
         try {
-            const res = await fetch("/api/auth/login", {
+            // Create FormData object
+            const formData = new FormData();
+            formData.append("username", username);
+            formData.append("password", password);
+
+            const res = await fetch("http://192.168.123.144:8000/auth/login", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password }),
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                },
+                body: formData,
             });
 
             const data = await res.json();
 
-            // Check if the response is successful
-            if (!data.success) {
-                throw new Error(data.message); // Display the backend message
+            if (!res.ok) {
+                throw new Error("Invalid credentials!");
             }
 
-            // Store only the user data in localStorage, not the entire response
-            localStorage.setItem("user-info", JSON.stringify(data.user));
-            setAuthUser(data.user);
+            localStorage.setItem(
+                "access-token",
+                JSON.stringify(data.access_token)
+            );
+            setAuthUser(username);
 
-            // Notify user about successful login
-            toast.success(data.message);
+            toast.success("Login successful!");
         } catch (error) {
-            // Display the error message
             toast.error(error.message);
         } finally {
             setLoading(false);
@@ -44,11 +47,3 @@ const useLogin = () => {
 };
 
 export default useLogin;
-
-function handleInputErrors({ username, password }) {
-    if (!(username && password)) {
-        toast.error("Please fill all the fields");
-        return false;
-    }
-    return true;
-}

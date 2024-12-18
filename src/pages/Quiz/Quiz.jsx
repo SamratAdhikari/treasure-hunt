@@ -1,9 +1,11 @@
-import { AspectRatio } from '@mui/icons-material';
-import React, { useState } from 'react';
-import QrScanner from 'react-qr-scanner';  // Import QR scanner package
+import { useState } from "react";
+import { useAuthContext } from "../../context/AuthContext";
 
 const Quiz = () => {
     const [qrResult, setQrResult] = useState(null); // State to store QR scan result
+    const { authUser } = useAuthContext();
+
+    console.log(authUser);
 
     // Handle successful QR code scan
     const handleScan = (data) => {
@@ -18,18 +20,14 @@ const Quiz = () => {
     };
 
     return (
-        <div className="quiz-page">
+        <div className="w-full h-full">
             <h1>Quiz Page</h1>
 
             {/* QR Scanner Section */}
             <div className="qr-scanner-container">
                 <h2>Scan QR Code</h2>
-                {/* <QrScanner
-              delay={300}  // Delay in milliseconds for the scanner
-              style={{ width: '80vh',AspectRatio:1/1,  }} // Make the scanner full width
-              onScan={handleScan}  // Handle scan result
-              onError={handleError}  // Handle errors
-            /> */}
+
+                {/* qr */}
             </div>
 
             {/* Display QR Code Scan Result */}

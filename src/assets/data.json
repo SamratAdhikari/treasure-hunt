@@ -1,0 +1,42 @@
+[
+    {
+        "username": "first",
+        "stallsVisited": 10,
+        "points": 50
+    },
+    {
+        "username": "second",
+        "stallsVisited": 5,
+        "points": 25
+    },
+    {
+        "username": "third",
+        "stallsVisited": 2,
+        "points": 10
+    },
+    {
+        "username": "fourth",
+        "stallsVisited": 11,
+        "points": 55
+    },
+    {
+        "username": "fifth",
+        "stallsVisited": 9,
+        "points": 45
+    },
+    {
+        "username": "sixth",
+        "stallsVisited": 4,
+        "points": 20
+    },
+    {
+        "username": "seventh",
+        "stallsVisited": 5,
+        "points": 25
+    },
+    {
+        "username": "eighth",
+        "stallsVisited": 10,
+        "points": 50
+    }
+]

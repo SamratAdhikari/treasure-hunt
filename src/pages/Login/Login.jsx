@@ -1,7 +1,8 @@
-// import useLogin from "../../hooks/useLogin";
+import useLogin from "../../hooks/useLogin";
 import {
     Box,
     Button,
+    CircularProgress,
     FormControl,
     FormHelperText,
     TextField,
@@ -10,7 +11,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 
 const Login = () => {
-    // const { loading, login } = useLogin();
+    const { loading, login } = useLogin()
 
     return (
         <Box className="h-screen flex justify-center items-center">
@@ -21,7 +22,6 @@ const Login = () => {
                         <span className="text-primary"> TreasureHunt</span>
                     </h1>
 
-                    {/* Form */}
                     <Formik
                         initialValues={{
                             username: "",
@@ -37,8 +37,10 @@ const Login = () => {
                                 .trim()
                                 .max(25, "Password must be 25 characters max"),
                         })}
-                        onSubmit={(values) => {
-                            console.log(values);
+                        onSubmit={(values, { setSubmitting }) => {
+                            // Call the login function from the hook
+                            login(values.username, values.password);
+                            setSubmitting(false);
                         }}
                     >
                         {(formik) => {
@@ -83,6 +85,7 @@ const Login = () => {
                                     <Button
                                         variant="contained"
                                         type="submit"
+                                        disabled={loading}
                                         sx={{
                                             bgcolor: "#6A5AE0",
                                             textTransform: "none",
@@ -90,7 +93,14 @@ const Login = () => {
                                             fontSize: "1rem",
                                         }}
                                     >
-                                        Submit
+                                        {loading ? (
+                                            <CircularProgress
+                                                color="inherit"
+                                                size="2rem"
+                                            />
+                                        ) : (
+                                            "Submit"
+                                        )}
                                     </Button>
                                 </form>
                             );
