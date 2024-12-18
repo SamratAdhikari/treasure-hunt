@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import ToggleSwitch from "../components/ToggleSwitch/ToggleSwitch";
+import ToggleSelectionBar from "../components/Quiz/ToggleSelectionBar";
 
 const RootLayout = () => {
     return (
         <div>
             <main>
-                <ToggleSwitch />
+                <ToggleSelectionBar/>
                 <Outlet />
             </main>
         </div>
