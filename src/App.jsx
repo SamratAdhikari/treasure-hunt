@@ -8,6 +8,7 @@ import Leaderboard from "./pages/Leaderboard/Leaderboard";
 
 function App() {
     const { page } = usePageContext();
+    console.log(page);
 
     return (
         <Routes>
@@ -19,13 +20,9 @@ function App() {
                     </Box>
                 }
             />
-
             <Route element={<RootLayout />}>
-                {page === "quiz" ? (
-                    <Route path="/quiz" element={<Quiz />} />
-                ) : (
-                    <Route path="/leaderboard" element={<Leaderboard />} />
-                )}
+                <Route path="/quiz" element={<Quiz />} />
+                <Route path="/leaderboard" element={<Leaderboard />} />
             </Route>
         </Routes>
     );
